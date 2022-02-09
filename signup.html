@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chat App</title>
+    </head>
+
+    <body>
+        <div id = "error-container"></div>
+        <input id = "name" type="text" name="name" value="" 
+            placeholder="Enter your name!">
+
+        <input id = "message" type="text" name="message" value="" 
+        placeholder="Enter message to send!">
+        <button type="button" name="button" onclick="sendMessage()">
+            Send Message!
+        </button>
+
+        <div id="message-container"></div>
+    </body>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const client = io()
+       
+        function setUser(){
+            client.emit('newUser',
+            document.getElementById('name').value,
+            document.getElementById('username').value,
+            document.getElementById('password').value,)
+
+            document.getElementById('message-container').innerHTML += 
+                '<div> You have signed up' + document.getElementById('name').value + '</div>'
+        }
+    
+    </script>
+</html>
