@@ -7,10 +7,12 @@ const mongoose = require('mongoose')
 
 
 
-mongoose.connect('mongodb+srv://RuzzelO:pieguy123@cluster0.7fqav.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://RuzzelO:pieguy123@cluster0.h6msz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+
 
 const io = require('socket.io')(http)
 
@@ -31,8 +33,8 @@ app.get('/login.html',function(req,res) {
     res.sendFile(__dirname +'/login.html')
 })
 
-app.get('/login.html',function(req,res) {
-    res.sendFile(__dirname +'/index.html')
+app.get('/signup.html',function(req,res) {
+    res.sendFile(__dirname +'/signup.html')
 })
 
 
@@ -47,7 +49,7 @@ io.on('connection',(socket) =>{
         console.log(data)
 
         console.log(`Room Name: ${roomName}`)
-        socket.broadcast.to(roomName).emit('newMessage', data)
+       io.to(roomName).emit('newMessage', data)
     })
 
     socket.on('newUser', (name)=>{

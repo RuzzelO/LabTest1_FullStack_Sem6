@@ -3,17 +3,17 @@
 <html lang="en">
     <head>
         <title>Chat App</title>
+        <h1>Sign Up</h1>
     </head>
 
     <body>
         <div id = "error-container"></div>
-        <input id = "name" type="text" name="name" value="" 
-            placeholder="Enter your name!">
-
-        <input id = "message" type="text" name="message" value="" 
-        placeholder="Enter message to send!">
-        <button type="button" name="button" onclick="sendMessage()">
-            Send Message!
+        <input id = "username" type="text" name="username" value="" 
+            placeholder="Enter username">
+        <input id = "password" type="text" name="password" value="" 
+        placeholder="Enter password">
+        <button type="button" name="button" onclick="setUser()">
+            Sign Up
         </button>
 
         <div id="message-container"></div>
